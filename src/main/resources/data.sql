@@ -1,0 +1,1 @@
+insert into `tittle`(name_tittle,note,`description`) values('senior', null, 'description');
