@@ -2,6 +2,11 @@ package com.cuder.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
 
@@ -10,6 +15,9 @@ import java.util.List;
  * 
  */
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Company implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -17,72 +25,21 @@ public class Company implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
-	private String address;
+	private String company_address;
+
+	private String company_name;
+
+	private String company_phone;
 
 	private String description;
 
-	private String nameCompany;
-
-	private String phone;
-
 	//bi-directional many-to-one association to Departmant
-	@OneToMany(mappedBy="company")
+	@OneToMany(mappedBy="company", cascade = CascadeType.ALL)
 	private List<Departmant> departmants;
 
 	//bi-directional many-to-one association to Member
-	@OneToMany(mappedBy="company")
+	@OneToMany(mappedBy="company", cascade = CascadeType.ALL)
 	private List<Member> members;
-
-	public Company() {
-	}
-
-	public int getId() {
-		return this.id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getAddress() {
-		return this.address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getNameCompany() {
-		return this.nameCompany;
-	}
-
-	public void setNameCompany(String nameCompany) {
-		this.nameCompany = nameCompany;
-	}
-
-	public String getPhone() {
-		return this.phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public List<Departmant> getDepartmants() {
-		return this.departmants;
-	}
-
-	public void setDepartmants(List<Departmant> departmants) {
-		this.departmants = departmants;
-	}
 
 	public Departmant addDepartmant(Departmant departmant) {
 		getDepartmants().add(departmant);
@@ -96,14 +53,6 @@ public class Company implements Serializable {
 		departmant.setCompany(null);
 
 		return departmant;
-	}
-
-	public List<Member> getMembers() {
-		return this.members;
-	}
-
-	public void setMembers(List<Member> members) {
-		this.members = members;
 	}
 
 	public Member addMember(Member member) {

@@ -9,4 +9,11 @@ public interface CompanyService{
 	List<Company> getAllCompany();
 
 	Company addCompany(Company company);
+
+	Company findById(Integer company_id);
+
+	Company updateCompany(Company company, Integer company_id);
+
+	void deleteCompany(Integer company_id);
+	
 }

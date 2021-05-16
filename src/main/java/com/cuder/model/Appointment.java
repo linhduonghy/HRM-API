@@ -11,15 +11,14 @@ import java.util.Date;
 
 
 /**
- * The persistent class for the detail_contract database table.
+ * The persistent class for the appointment database table.
  * 
  */
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="detail_contract")
-public class DetailContract implements Serializable {
+public class Appointment implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -27,18 +26,22 @@ public class DetailContract implements Serializable {
 	private int id;
 
 	@Temporal(TemporalType.DATE)
-	private Date contract_end_date;
+	private Date appointed_date;
 
-	@Temporal(TemporalType.DATE)
-	private Date contract_signing_date;
-
-	//bi-directional many-to-one association to Contract
-	@ManyToOne
-	@JoinColumn(name="contract_id")
-	private Contract contract;
+	private String decription;
 
 	//bi-directional many-to-one association to Manager
 	@ManyToOne
-	@JoinColumn(name="manager_id")
+	@JoinColumn(name = "manager_id")
 	private Manager manager;
+
+	//bi-directional many-to-one association to Staff
+	@ManyToOne
+	@JoinColumn(name = "staff_id")
+	private Staff staff;
+
+	//bi-directional many-to-one association to Title
+	@ManyToOne
+	@JoinColumn(name="title_id")
+	private Title title;
 }

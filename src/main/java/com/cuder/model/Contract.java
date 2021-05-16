@@ -2,6 +2,11 @@ package com.cuder.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
 
@@ -10,6 +15,9 @@ import java.util.List;
  * 
  */
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Contract implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -21,83 +29,32 @@ public class Contract implements Serializable {
 
 	private String note;
 
-	//bi-directional many-to-one association to Detailcontract
+	//bi-directional many-to-one association to ContractType
+	@ManyToOne
+	@JoinColumn(name="contract_type_id")
+	private ContractType contractType;
+
+	//bi-directional one-to-one association to Staff
+	@OneToOne
+	@JoinColumn(name="staff_id")
+	private Staff staff;
+
+	//bi-directional one-to-many association to DetailContract
 	@OneToMany(mappedBy="contract")
-	private List<DetailContract> detailcontracts;
+	private List<DetailContract> detailContracts;
 
-	//bi-directional many-to-one association to Typecontract
-	@OneToMany(mappedBy="contract")
-	private List<TypeContract> typecontracts;
+	public DetailContract addDetailContract(DetailContract detailContract) {
+		getDetailContracts().add(detailContract);
+		detailContract.setContract(this);
 
-	public Contract() {
+		return detailContract;
 	}
 
-	public int getId() {
-		return this.id;
-	}
+	public DetailContract removeDetailContract(DetailContract detailContract) {
+		getDetailContracts().remove(detailContract);
+		detailContract.setContract(null);
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getNote() {
-		return this.note;
-	}
-
-	public void setNote(String note) {
-		this.note = note;
-	}
-
-	public List<DetailContract> getDetailcontracts() {
-		return this.detailcontracts;
-	}
-
-	public void setDetailcontracts(List<DetailContract> detailcontracts) {
-		this.detailcontracts = detailcontracts;
-	}
-
-	public DetailContract addDetailcontract(DetailContract detailcontract) {
-		getDetailcontracts().add(detailcontract);
-		detailcontract.setContract(this);
-
-		return detailcontract;
-	}
-
-	public DetailContract removeDetailcontract(DetailContract detailcontract) {
-		getDetailcontracts().remove(detailcontract);
-		detailcontract.setContract(null);
-
-		return detailcontract;
-	}
-
-	public List<TypeContract> getTypecontracts() {
-		return this.typecontracts;
-	}
-
-	public void setTypecontracts(List<TypeContract> typecontracts) {
-		this.typecontracts = typecontracts;
-	}
-
-	public TypeContract addTypecontract(TypeContract typecontract) {
-		getTypecontracts().add(typecontract);
-		typecontract.setContract(this);
-
-		return typecontract;
-	}
-
-	public TypeContract removeTypecontract(TypeContract typecontract) {
-		getTypecontracts().remove(typecontract);
-		typecontract.setContract(null);
-
-		return typecontract;
+		return detailContract;
 	}
 
 }

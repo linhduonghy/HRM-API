@@ -8,26 +8,27 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
+
 /**
- * The persistent class for the bonus database table.
+ * The persistent class for the basic_salary database table.
  * 
  */
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Bonus implements Serializable {
+@Table(name="basic_salary")
+public class BasicSalary implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
-	private float bonuses;
-
-	private String bonusType;
+	private float basic_salary;
 
 	//bi-directional one-to-one association to Salary
-	@OneToOne(mappedBy="bonus")
+	@OneToOne(mappedBy = "basicSalary")
 	private Salary salary;
 }
