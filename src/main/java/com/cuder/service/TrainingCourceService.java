@@ -2,18 +2,20 @@ package com.cuder.service;
 
 import java.util.List;
 
-import com.cuder.model.TrainingCourse;
+import com.cuder.model.TrainingCource;
 
 public interface TrainingCourceService {
 
-	List<TrainingCourse> getAllTrainingCource();
+	List<TrainingCource> getAllTrainingCource();
 
-	TrainingCourse getById(Integer id);
+	TrainingCource findById(Integer id);
 
-	TrainingCourse createTrainingCource(TrainingCourse tc);
+	TrainingCource createTrainingCource(TrainingCource tc);
 
-	TrainingCourse updateTrainingCource(TrainingCourse newTC, Integer id);
+	TrainingCource updateTrainingCource(TrainingCource newTC, Integer id);
 
 	void deleteTrainingCource(Integer id);
+
+	
 
 }

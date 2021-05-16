@@ -3,6 +3,8 @@ package com.cuder.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -46,6 +48,7 @@ public class Salary implements Serializable {
 	private Bonus bonus;
 
 	//bi-directional many-to-one association to Member
-	@OneToOne(mappedBy = "salary")
+	@OneToOne(mappedBy = "salary", orphanRemoval = true)
+	@JsonIgnore
 	private Member member;
 }

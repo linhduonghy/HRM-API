@@ -48,27 +48,22 @@ public class Member implements Serializable {
 	//bi-directional many-to-one association to Departmant
 	@ManyToOne
 	@JoinColumn(name = "department_id")
-	private Departmant departmant;
+	private Department departmant;
 	
 	//bi-directional many-to-one association to Degree
-	@OneToMany(mappedBy="member")
+	@OneToMany(mappedBy="member", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Degree> degrees;
 
 	//bi-directional many-to-one association to Manager
-	@OneToOne(mappedBy="member", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy="member", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Manager manager;
 
 	//bi-directional one-to-one association to Staff
-	@OneToOne(mappedBy="member", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy="member", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Staff staff;
-		
-	//bi-directional many-to-one association to Company
-	@ManyToOne
-	@JoinColumn(name = "company_id")
-	private Company company;
 
 	//bi-directional one-to-many association to MemberPermission
-	@OneToMany(mappedBy="member", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="member", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<MemberPermission> memberPermissions;
 
 	//bi-directional many-to-one association to Salary
@@ -77,8 +72,8 @@ public class Member implements Serializable {
 	private Salary salary;
 
 	//bi-directional many-to-one association to TrainingCourse
-	@OneToMany(mappedBy="member", cascade = CascadeType.ALL)
-	private List<MemberTraningCource> memberTraningCources;
+	@OneToMany(mappedBy="member", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<MemberTrainingCource> memberTraningCources;
 
 	public MemberPermission addMemberPermission(MemberPermission memberPermission) {
 		getMemberPermissions().add(memberPermission);
@@ -96,14 +91,14 @@ public class Member implements Serializable {
 
 
 
-	public MemberTraningCource addMemberTrainingCources(MemberTraningCource mtc) {
+	public MemberTrainingCource addMemberTrainingCources(MemberTrainingCource mtc) {
 		getMemberTraningCources().add(mtc);
 		mtc.setMember(this);
 		
 		return mtc;
 	}
 
-	public MemberTraningCource removeMemberTrainingCources(MemberTraningCource mtc) {
+	public MemberTrainingCource removeMemberTrainingCources(MemberTrainingCource mtc) {
 		getMemberTraningCources().remove(mtc);
 		mtc.setMember(null);
 		

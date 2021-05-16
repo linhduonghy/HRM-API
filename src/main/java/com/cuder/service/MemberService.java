@@ -8,6 +8,12 @@ public interface MemberService {
 
 	List<Member> getAllMember();
 
-	Member addMember(Member member);
+	Member findById(Integer id);
+	
+	Member createMember(Member member);
+
+	Member updateMember(Member newMember, Integer id);
+
+	void deleteMember(Integer id);
 	
 }

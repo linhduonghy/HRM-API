@@ -18,7 +18,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "member_traning_cource")
-public class MemberTraningCource implements Serializable {
+public class MemberTrainingCource implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -31,7 +31,7 @@ public class MemberTraningCource implements Serializable {
 	// bi-directional many-to-one association to TrainingCourse
 	@ManyToOne
 	@JoinColumn(name = "training_cource_id")
-	private TrainingCourse trainingCource;
+	private TrainingCource trainingCource;
 
 	// bi-directional many-to-one association to Member
 	@ManyToOne

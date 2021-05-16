@@ -19,7 +19,7 @@ import lombok.Data;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="training_course")
-public class TrainingCourse implements Serializable {
+public class TrainingCource implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -36,5 +36,5 @@ public class TrainingCourse implements Serializable {
 
 	//bi-directional one-to-many association to MemberTraningCource
 	@OneToMany(mappedBy = "trainingCource", cascade = CascadeType.ALL)
-	private List<MemberTraningCource> memberTraningCources;
+	private List<MemberTrainingCource> memberTraningCources;
 }

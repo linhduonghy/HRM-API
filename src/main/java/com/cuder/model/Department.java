@@ -3,6 +3,8 @@ package com.cuder.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +20,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Departmant implements Serializable {
+public class Department implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -37,7 +39,8 @@ public class Departmant implements Serializable {
 	private Company company;
 
 	//bi-directional many-to-one association to Staff
-	@OneToMany(mappedBy="departmant", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="departmant", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonIgnore
 	private List<Member> members;
 
 

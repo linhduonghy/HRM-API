@@ -3,6 +3,7 @@ package com.cuder.web;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import com.cuder.model.Title;
 import com.cuder.service.TitleService;
 
 @RestController
+@CrossOrigin(value = "*")
 @RequestMapping(value = "/title")
 public class TitleController {
 

@@ -3,6 +3,8 @@ package com.cuder.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,39 +36,21 @@ public class Company implements Serializable {
 	private String description;
 
 	//bi-directional many-to-one association to Departmant
-	@OneToMany(mappedBy="company", cascade = CascadeType.ALL)
-	private List<Departmant> departmants;
+	@OneToMany(mappedBy="company", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonIgnore
+	private List<Department> departmants;
 
-	//bi-directional many-to-one association to Member
-	@OneToMany(mappedBy="company", cascade = CascadeType.ALL)
-	private List<Member> members;
-
-	public Departmant addDepartmant(Departmant departmant) {
+	public Department addDepartmant(Department departmant) {
 		getDepartmants().add(departmant);
 		departmant.setCompany(this);
 
 		return departmant;
 	}
 
-	public Departmant removeDepartmant(Departmant departmant) {
+	public Department removeDepartmant(Department departmant) {
 		getDepartmants().remove(departmant);
 		departmant.setCompany(null);
 
 		return departmant;
 	}
-
-	public Member addMember(Member member) {
-		getMembers().add(member);
-		member.setCompany(this);
-
-		return member;
-	}
-
-	public Member removeMember(Member member) {
-		getMembers().remove(member);
-		member.setCompany(null);
-
-		return member;
-	}
-
 }

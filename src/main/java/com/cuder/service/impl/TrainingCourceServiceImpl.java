@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cuder.model.TrainingCourse;
+import com.cuder.model.TrainingCource;
 import com.cuder.repository.TrainingCourceRepository;
 import com.cuder.service.TrainingCourceService;
 
@@ -16,12 +16,12 @@ public class TrainingCourceServiceImpl implements TrainingCourceService {
 	private TrainingCourceRepository trainingCourceRepo;
 	
 	@Override
-	public List<TrainingCourse> getAllTrainingCource() {
+	public List<TrainingCource> getAllTrainingCource() {
 		return trainingCourceRepo.findAll();
 	}
 
 	@Override
-	public TrainingCourse getById(Integer id) {
+	public TrainingCource findById(Integer id) {
 		return trainingCourceRepo.findById(id).map(tc -> {
 			return tc;
 		}).orElseGet(() -> {
@@ -30,14 +30,14 @@ public class TrainingCourceServiceImpl implements TrainingCourceService {
 	}
 
 	@Override
-	public TrainingCourse createTrainingCource(TrainingCourse tc) {
+	public TrainingCource createTrainingCource(TrainingCource tc) {
 		return trainingCourceRepo.save(tc);
 	}
 
 	@Override
-	public TrainingCourse updateTrainingCource(TrainingCourse newTC, Integer id) {
+	public TrainingCource updateTrainingCource(TrainingCource newTC, Integer id) {
 		
-		TrainingCourse tc = getById(id);
+		TrainingCource tc = findById(id);
 		if (tc == null) {
 			return null;
 		}

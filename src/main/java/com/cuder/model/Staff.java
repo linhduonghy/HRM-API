@@ -25,12 +25,6 @@ public class Staff implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
-	private String level;
-
-	private String password;
-
-	private String username;
-
 	//bi-directional one-to-many association to Appointment
 	@OneToMany(mappedBy="staff")
 	private List<Appointment> appointments;
@@ -38,7 +32,6 @@ public class Staff implements Serializable {
 	//bi-directional one-to-one association to Contract
 	@OneToOne(mappedBy="staff")
 	private Contract contract;
-
 
 	//bi-directional one-to-one association to Member
 	@OneToOne
