@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
@@ -36,5 +38,6 @@ public class TrainingCource implements Serializable {
 
 	//bi-directional one-to-many association to MemberTraningCource
 	@OneToMany(mappedBy = "trainingCource", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<MemberTrainingCource> memberTraningCources;
 }

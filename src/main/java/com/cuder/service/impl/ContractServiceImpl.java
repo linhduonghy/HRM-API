@@ -43,7 +43,6 @@ public class ContractServiceImpl implements ContractService {
 		
 		contract.setContractType(newContract.getContractType());
 		contract.setDescription(newContract.getDescription());
-		contract.setDetailContracts(newContract.getDetailContracts());
 		contract.setNote(newContract.getNote());
 		contract.setStaff(newContract.getStaff());
 		

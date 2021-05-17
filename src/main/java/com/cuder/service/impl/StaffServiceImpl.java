@@ -42,7 +42,7 @@ public class StaffServiceImpl implements StaffService {
 		}
 		
 		staff.setAppointments(newStaff.getAppointments());
-		staff.setContract(newStaff.getContract());
+		staff.setContracts(newStaff.getContracts());
 		staff.setMember(newStaff.getMember());
 		
 		return staffRepo.save(staff);

@@ -1,6 +1,8 @@
 package com.cuder.model;
 
 import java.io.Serializable;
+
+
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -51,4 +53,6 @@ public class Salary implements Serializable {
 	@OneToOne(mappedBy = "salary", orphanRemoval = true)
 	@JsonIgnore
 	private Member member;
+	
+	
 }

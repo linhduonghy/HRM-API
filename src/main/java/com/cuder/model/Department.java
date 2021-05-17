@@ -38,7 +38,7 @@ public class Department implements Serializable {
 	@JoinColumn(name="company_id")
 	private Company company;
 
-	//bi-directional many-to-one association to Staff
+	//bi-directional one-to-many association to Staff
 	@OneToMany(mappedBy="departmant", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
 	private List<Member> members;

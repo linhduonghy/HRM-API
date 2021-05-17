@@ -3,6 +3,8 @@ package com.cuder.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -50,20 +52,24 @@ public class Member implements Serializable {
 	@JoinColumn(name = "department_id")
 	private Department departmant;
 	
-	//bi-directional many-to-one association to Degree
-	@OneToMany(mappedBy="member", cascade = CascadeType.ALL, orphanRemoval = true)
+	//bi-directional one-to-many association to Degree
+	@OneToMany(mappedBy="member", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<Degree> degrees;
 
-	//bi-directional many-to-one association to Manager
-	@OneToOne(mappedBy="member", cascade = CascadeType.ALL, orphanRemoval = true)
+	//bi-directional one-to-one association to Manager
+	@OneToOne(mappedBy="member", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private Manager manager;
 
 	//bi-directional one-to-one association to Staff
-	@OneToOne(mappedBy="member", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(mappedBy="member", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private Staff staff;
 
 	//bi-directional one-to-many association to MemberPermission
-	@OneToMany(mappedBy="member", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy="member", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<MemberPermission> memberPermissions;
 
 	//bi-directional many-to-one association to Salary
@@ -72,7 +78,8 @@ public class Member implements Serializable {
 	private Salary salary;
 
 	//bi-directional many-to-one association to TrainingCourse
-	@OneToMany(mappedBy="member", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy="member", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<MemberTrainingCource> memberTraningCources;
 
 	public MemberPermission addMemberPermission(MemberPermission memberPermission) {

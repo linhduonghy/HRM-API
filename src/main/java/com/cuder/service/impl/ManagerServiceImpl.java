@@ -42,7 +42,7 @@ public class ManagerServiceImpl implements ManagerService {
 		}
 		
 		manager.setAppointments(newManager.getAppointments());
-		manager.setDetailContracts(newManager.getDetailContracts());
+		manager.setContracts(newManager.getContracts());
 		manager.setMember(newManager.getMember());
 		manager.setReports(newManager.getReports());
 		manager.setYears_of_experience(newManager.getYears_of_experience());

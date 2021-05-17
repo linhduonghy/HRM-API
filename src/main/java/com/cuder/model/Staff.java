@@ -3,6 +3,8 @@ package com.cuder.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,11 +29,13 @@ public class Staff implements Serializable {
 
 	//bi-directional one-to-many association to Appointment
 	@OneToMany(mappedBy="staff")
+	@JsonIgnore
 	private List<Appointment> appointments;
 
-	//bi-directional one-to-one association to Contract
-	@OneToOne(mappedBy="staff")
-	private Contract contract;
+	//bi-directional one-to-many association to Contract
+	@OneToMany(mappedBy="staff")
+	@JsonIgnore
+	private List<Contract> contracts;
 
 	//bi-directional one-to-one association to Member
 	@OneToOne
