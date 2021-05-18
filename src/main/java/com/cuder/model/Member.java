@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -49,6 +50,7 @@ public class Member implements Serializable {
 	//bi-directional many-to-one association to Departmant
 	@ManyToOne
 	@JoinColumn(name = "department_id")
+	@JsonIgnoreProperties("members")
 	private Department departmant;
 	
 	//bi-directional one-to-many association to Degree

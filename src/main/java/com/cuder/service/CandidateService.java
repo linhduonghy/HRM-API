@@ -14,4 +14,6 @@ public interface CandidateService {
 	Candidate updateCandidate(Candidate newCandidate, Integer id);
 
 	void deleteCandidate(Integer id);
+
+	void acceptCandidate(Integer id);
 }

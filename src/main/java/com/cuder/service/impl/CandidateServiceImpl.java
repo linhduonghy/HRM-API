@@ -60,4 +60,9 @@ public class CandidateServiceImpl implements CandidateService {
 		candidateRepo.deleteById(id);
 	}
 
+	@Override
+	public void acceptCandidate(Integer id) {
+		candidateRepo.acceptCandidate(id);
+	}
+
 }
