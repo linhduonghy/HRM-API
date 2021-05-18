@@ -40,3 +40,10 @@ insert into `title`(id,description,title_name) values(10,'','Recruiter');
 insert into `title`(id,description,title_name) values(11,'','Training Coordinator');
 insert into `title`(id,description,title_name) values(12,'','Payroll Clerk');
 
+INSERT INTO appointment  VALUES (1,'2021-05-20',NULL,1,1,1);
+INSERT INTO appointment VALUES (2,'2021-05-25',NULL,1,1,5);
+INSERT INTO appointment  VALUES (3,'2021-05-25',NULL,1,2,4);
+INSERT INTO appointment  VALUES (4,'2021-05-25',NULL,1,3,5);
+INSERT INTO appointment  VALUES (5,'2021-05-25',NULL,1,3,7);
+INSERT INTO appointment VALUES (6,'2021-05-25',NULL,1,1,5);
+

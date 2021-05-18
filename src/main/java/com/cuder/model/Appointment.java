@@ -36,6 +36,7 @@ public class Appointment implements Serializable {
 	private Manager manager;
 
 	//bi-directional many-to-one association to Staff
+	@ManyToOne
 	@JoinColumn(name = "staff_id")
 	@JsonIgnoreProperties("appointments")
 	private Staff staff;

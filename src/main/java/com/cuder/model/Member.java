@@ -64,7 +64,7 @@ public class Member implements Serializable {
 	private Manager manager;
 
 	//bi-directional one-to-one association to Staff
-	@OneToOne(mappedBy="member", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy="member")
 	@JsonIgnore
 	private Staff staff;
 
