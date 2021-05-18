@@ -28,7 +28,7 @@ public class RecruitmentPosition implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private int number_of_recruiment;
+	private int number_of_recruitment;
 	
 	@ManyToOne
 	private RecruitmentTerm recruitmentTerm;

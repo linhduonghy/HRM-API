@@ -42,7 +42,7 @@ public class RecruitmentPositionServiceImpl implements RecruitmentPositionServic
 		}
 		
 		recruitmentPosition.setCandidates(newRecruitmentPosition.getCandidates());
-		recruitmentPosition.setNumber_of_recruiment(newRecruitmentPosition.getNumber_of_recruiment());
+		recruitmentPosition.setNumber_of_recruitment(newRecruitmentPosition.getNumber_of_recruitment());
 		recruitmentPosition.setRecruitmentTerm(newRecruitmentPosition.getRecruitmentTerm());
 		recruitmentPosition.setTitle(newRecruitmentPosition.getTitle());
 		
