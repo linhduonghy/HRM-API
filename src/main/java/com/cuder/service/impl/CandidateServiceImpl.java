@@ -41,7 +41,7 @@ public class CandidateServiceImpl implements CandidateService {
 			return null;
 		}
 		
-		candidate.setAccepted(newCandidate.getAccepted());
+		candidate.setStatus(newCandidate.getStatus());
 		candidate.setAddress(newCandidate.getAddress());
 		candidate.setDob(newCandidate.getDob());
 		candidate.setEmail(newCandidate.getEmail());

@@ -29,6 +29,11 @@ public class RecruitmentPositionController {
 		return recruitmentPositionService.getAllRecruitmentPosition();
 	}
 	
+	@GetMapping("term/{term_id}")
+	public List<RecruitmentPosition> getPositionsInTerm(@PathVariable("term_id") Integer term_id) {
+		return recruitmentPositionService.getPositionsInTerm(term_id);
+	}
+	
 	@GetMapping("/{id}")
 	public RecruitmentPosition getById(@PathVariable Integer id) {
 		return recruitmentPositionService.findById(id);

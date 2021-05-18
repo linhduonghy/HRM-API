@@ -18,7 +18,7 @@ import com.cuder.service.CandidateService;
 
 @RestController
 @CrossOrigin(value = "*")
-@RequestMapping(value = "/candidate")
+@RequestMapping(value = "/recruitment/candidate")
 public class CandidateController {
 
 	@Autowired 

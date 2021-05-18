@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,14 +31,12 @@ public class RecruitmentPosition implements Serializable{
 	private int number_of_recruitment;
 	
 	@ManyToOne
+	@JsonIgnoreProperties("recruitmentPositions")
 	private RecruitmentTerm recruitmentTerm;
 	
 	@ManyToOne
 	private Title title;
 	
 	@OneToMany(mappedBy = "recruitmentPosition")
-	@JsonIgnore
 	private List<Candidate> candidates;
-	
-	
 }

@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 
@@ -30,7 +30,6 @@ public class Member implements Serializable {
 
 	private String address;
 
-	@Temporal(TemporalType.DATE)
 	private Date dob;
 
 	private String email;

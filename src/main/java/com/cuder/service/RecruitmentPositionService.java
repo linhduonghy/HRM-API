@@ -14,4 +14,6 @@ public interface RecruitmentPositionService {
 	RecruitmentPosition updateRecruitmentPosition(RecruitmentPosition newRecruitmentPosition, Integer id);
 
 	void deleteRecruitmentPosition(Integer id);
+
+	List<RecruitmentPosition> getPositionsInTerm(Integer term_id);
 }

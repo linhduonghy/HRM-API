@@ -55,4 +55,9 @@ public class RecruitmentPositionServiceImpl implements RecruitmentPositionServic
 		recruitmentPositionRepo.deleteById(id);
 	}
 
+	@Override
+	public List<RecruitmentPosition> getPositionsInTerm(Integer term_id) {
+		return recruitmentPositionRepo.getPositionsInTerm(term_id);
+	}
+
 }

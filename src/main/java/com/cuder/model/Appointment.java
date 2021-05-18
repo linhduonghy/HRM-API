@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.sql.Date;
 
 
 /**
@@ -25,7 +25,6 @@ public class Appointment implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
-	@Temporal(TemporalType.DATE)
 	private Date appointed_date;
 
 	private String decription;
