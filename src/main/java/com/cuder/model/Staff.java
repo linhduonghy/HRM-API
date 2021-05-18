@@ -29,6 +29,10 @@ public class Staff implements Serializable {
 
 	//bi-directional one-to-many association to Appointment
 	@OneToMany(mappedBy="staff")
+<<<<<<< HEAD
+=======
+	
+>>>>>>> e2157401260574f81834c988eefe0c3301be62cd
 	private List<Appointment> appointments;
 
 	//bi-directional one-to-many association to Contract
