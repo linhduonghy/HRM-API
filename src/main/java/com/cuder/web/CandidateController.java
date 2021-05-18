@@ -44,9 +44,9 @@ public class CandidateController {
 		return candidateService.updateCandidate(newCandidate, id);
 	}
 	
-	@PutMapping("/accept/{candidate_id}")
-	public void acceptCandidate(@PathVariable Integer candidate_id) {
-		candidateService.acceptCandidate(candidate_id);
+	@PostMapping("/accept")
+	public Candidate acceptCandidate(@RequestBody Candidate c) {
+		return candidateService.acceptCandidate(c);
 	}
 	
 	@DeleteMapping("/{id}")

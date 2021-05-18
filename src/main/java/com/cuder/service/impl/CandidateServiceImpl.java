@@ -61,8 +61,10 @@ public class CandidateServiceImpl implements CandidateService {
 	}
 
 	@Override
-	public void acceptCandidate(Integer id) {
-		candidateRepo.acceptCandidate(id);
+	public Candidate acceptCandidate(Candidate c) {
+		c = findById(c.getId());
+		c.setStatus("accepted");
+		return candidateRepo.save(c);
 	}
 
 }

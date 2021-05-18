@@ -15,5 +15,5 @@ public interface CandidateService {
 
 	void deleteCandidate(Integer id);
 
-	void acceptCandidate(Integer id);
+	Candidate acceptCandidate(Candidate c);
 }
