@@ -14,11 +14,29 @@ INSERT INTO `member` VALUES (3,'Lam Thao - Phu Tho','1999-10-03','huynd@gmail.co
 INSERT INTO `member` VALUES (4,'SS-HN','1999-10-19','iu@gmail.com','12345','IUTU','iu','123456','Female','iu',1,4);
 INSERT INTO `member` VALUES (5,'VP','1999-02-11','flna@gmail.com','12345','flna','flna','123456','Female','flna',1,5);
 
-insert into `staff` values (1, 1);
-insert into `staff` values (2, 2);
-insert into `staff` values (3, 3);
+insert into `staff`(id,member_id) values (1, 1);
+insert into `staff`(id,member_id) values (2, 2);
+insert into `staff`(id,member_id) values (3, 3);
 
-insert into `manager` values(1,3,4);
-insert into `manager` values(2,9,5);
+insert into `manager`(id,years_of_experience,member_id) values(1,3,4);
+insert into `manager`(id,years_of_experience,member_id) values(2,9,5);
 
-insert into `contract_type` values(1,'Hợp đồng chính thức', ''), (2,'Hợp đồng thử việc','');
+insert into `contract_type`(id,contract_type_name,description) values(1,'Hợp đồng chính thức', ''), (2,'Hợp đồng thử việc','');
+
+insert into `term`(id,name,description,status,start_date,end_date) values(1, 'Tuyển dụng đợt 1 - 2021', '', 'Hết hạn tuyển dụng', '2021-01-01', '2021-04-01');
+insert into `term`(id,name,description,status,start_date,end_date) values(2, 'Tuyển dụng đợt 2 - 2021', '', 'Đang tuyển dụng', '2021-04-02', '2021-08-02');
+insert into `term`(id,name,description,status,start_date,end_date) values(3, 'Tuyển dụng đợt 3 - 2021', '', 'Đang tuyển dụng', '2021-08-03', '2021-12-03');
+
+insert into `title`(id,description,title_name) values(1,'','Data Analyst');
+insert into `title`(id,description,title_name) values(2,'','Data Scientist');
+insert into `title`(id,description,title_name) values(3,'','System Administrator');
+insert into `title`(id,description,title_name) values(4,'','QA Tester');
+insert into `title`(id,description,title_name) values(5,'','Network Administrator');
+insert into `title`(id,description,title_name) values(6,'','Database Administrator');
+insert into `title`(id,description,title_name) values(7,'','Systems Analyst');
+insert into `title`(id,description,title_name) values(8,'','Devops Engineer');
+insert into `title`(id,description,title_name) values(9,'','Network Technician');
+insert into `title`(id,description,title_name) values(10,'','Recruiter');
+insert into `title`(id,description,title_name) values(11,'','Training Coordinator');
+insert into `title`(id,description,title_name) values(12,'','Payroll Clerk');
+
