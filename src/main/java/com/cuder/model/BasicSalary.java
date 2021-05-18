@@ -27,7 +27,7 @@ public class BasicSalary implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-
+	private String name;
 	private float basic_salary;
 
 	//bi-directional one-to-one association to Salary
