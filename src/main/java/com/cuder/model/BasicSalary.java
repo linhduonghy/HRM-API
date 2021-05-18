@@ -1,6 +1,8 @@
 package com.cuder.model;
 
 import java.io.Serializable;
+import java.sql.Date;
+
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -29,6 +31,7 @@ public class BasicSalary implements Serializable {
 	private int id;
 	private String name;
 	private float basic_salary;
+	private Date createDate;
 
 	//bi-directional one-to-one association to Salary
 	@OneToOne(mappedBy = "basicSalary", orphanRemoval = true)
