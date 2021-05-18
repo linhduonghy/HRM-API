@@ -18,7 +18,7 @@ import com.cuder.service.RecruitmentPositionService;
 
 @RestController
 @CrossOrigin(value = "*")
-@RequestMapping(value = "/recruitmentPosition")
+@RequestMapping(value = "/recruitment-position")
 public class RecruitmentPositionController {
 
 	@Autowired 

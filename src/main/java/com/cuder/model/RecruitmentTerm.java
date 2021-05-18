@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -20,6 +21,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name="term")
 public class RecruitmentTerm implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -32,7 +34,7 @@ public class RecruitmentTerm implements Serializable{
 	
 	private String description;
 	
-	private Boolean status;
+	private String status;
 	
 	private Date start_date;
 	
