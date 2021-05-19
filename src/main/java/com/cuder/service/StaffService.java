@@ -7,11 +7,11 @@ import com.cuder.model.Staff;
 public interface StaffService {
 	List<Staff> getAllStaff();
 
-	Staff findById(Integer id);
+	Staff findById(String id);
 	
 	Staff createStaff(Staff staff);
 
-	Staff updateStaff(Staff newStaff, Integer id);
+	Staff updateStaff(Staff newStaff, String id);
 
-	void deleteStaff(Integer id);
+	void deleteStaff(String id);
 }

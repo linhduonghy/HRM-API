@@ -30,7 +30,7 @@ public class ContractController {
 	}
 	
 	@GetMapping("/{id}")
-	public Contract getById(@PathVariable Integer id) {
+	public Contract getById(@PathVariable String id) {
 		return contractService.findById(id);
 	}
 	
@@ -40,12 +40,12 @@ public class ContractController {
 	}
 	
 	@PutMapping("/{id}")
-	public Contract updateContract(@RequestBody Contract newContract, @PathVariable Integer id) {
+	public Contract updateContract(@RequestBody Contract newContract, @PathVariable String id) {
 		return contractService.updateContract(newContract, id);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteContract(@PathVariable Integer id) {
+	public void deleteContract(@PathVariable String id) {
 		contractService.deleteContract(id);
 	}
 }

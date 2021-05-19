@@ -21,7 +21,7 @@ public class BasicSalaryServiceImpl implements BasicSalaryService {
 	}
 
 	@Override
-	public BasicSalary findById(Integer id) {
+	public BasicSalary findById(String id) {
 		return basicSalaryRepo.findById(id).map(a -> {
 			return a;
 		}).orElseGet(() -> {
@@ -35,20 +35,22 @@ public class BasicSalaryServiceImpl implements BasicSalaryService {
 	}
 
 	@Override
-	public BasicSalary updateBasicSalary(BasicSalary newBasicSalary, Integer id) {
+	public BasicSalary updateBasicSalary(BasicSalary newBasicSalary, String id) {
 		BasicSalary basicSalary = findById(id);
 		if (basicSalary == null) {
 			return null;
 		}
 
-		basicSalary.setBasic_salary(newBasicSalary.getBasic_salary());
-		basicSalary.setSalary(newBasicSalary.getSalary());
+		basicSalary.setBasic_salary_value(newBasicSalary.getBasic_salary_value());
+		basicSalary.setBasic_salary_name(newBasicSalary.getBasic_salary_name());
+		basicSalary.setCreatedDate(newBasicSalary.getCreatedDate());
+		basicSalary.setSalaries(newBasicSalary.getSalaries());
 		
 		return basicSalaryRepo.save(basicSalary);
 	}
 
 	@Override
-	public void deleteBasicSalary(Integer id) {
+	public void deleteBasicSalary(String id) {
 		
 		basicSalaryRepo.deleteById(id);
 	}

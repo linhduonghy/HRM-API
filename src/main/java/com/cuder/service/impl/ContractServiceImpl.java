@@ -21,7 +21,7 @@ public class ContractServiceImpl implements ContractService {
 	}
 
 	@Override
-	public Contract findById(Integer id) {
+	public Contract findById(String id) {
 		return contractRepo.findById(id).map(a -> {
 			return a;
 		}).orElseGet(() -> {
@@ -35,22 +35,24 @@ public class ContractServiceImpl implements ContractService {
 	}
 
 	@Override
-	public Contract updateContract(Contract newContract, Integer id) {
+	public Contract updateContract(Contract newContract, String id) {
 		Contract contract = findById(id);
 		if (contract == null) {
 			return null;
 		}
 		
+		contract.setContract_end_date(newContract.getContract_end_date());
+		contract.setContract_signing_date(newContract.getContract_signing_date());
 		contract.setContractType(newContract.getContractType());
-		contract.setDescription(newContract.getDescription());
 		contract.setNote(newContract.getNote());
+		contract.setManager(newContract.getManager());
 		contract.setStaff(newContract.getStaff());
 		
 		return contractRepo.save(contract);
 	}
 
 	@Override
-	public void deleteContract(Integer id) {
+	public void deleteContract(String id) {
 		
 		contractRepo.deleteById(id);
 	}

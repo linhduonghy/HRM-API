@@ -30,7 +30,7 @@ public class StaffController {
 	}
 	
 	@GetMapping("/{id}")
-	public Staff getById(@PathVariable Integer id) {
+	public Staff getById(@PathVariable String id) {
 		return staffService.findById(id);
 	}
 	
@@ -40,12 +40,12 @@ public class StaffController {
 	}
 	
 	@PutMapping("/{id}")
-	public Staff updateStaff(@RequestBody Staff newStaff, @PathVariable Integer id) {
+	public Staff updateStaff(@RequestBody Staff newStaff, @PathVariable String id) {
 		return staffService.updateStaff(newStaff, id);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteStaff(@PathVariable Integer id) {
+	public void deleteStaff(@PathVariable String id) {
 		staffService.deleteStaff(id);
 	}
 }

@@ -7,11 +7,11 @@ import com.cuder.model.Manager;
 public interface ManagerService {
 	List<Manager> getAllManager();
 
-	Manager findById(Integer id);
+	Manager findById(String id);
 	
 	Manager createManager(Manager manager);
 
-	Manager updateManager(Manager newManager, Integer id);
+	Manager updateManager(Manager newManager, String id);
 
-	void deleteManager(Integer id);
+	void deleteManager(String id);
 }

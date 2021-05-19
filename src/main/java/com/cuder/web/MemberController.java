@@ -30,7 +30,7 @@ public class MemberController {
 	}
 	
 	@GetMapping("/{id}")
-	public Member getById(@PathVariable Integer id) {
+	public Member getById(@PathVariable String id) {
 		return memberService.findById(id);
 	}
 	@GetMapping("/usrn/{ursn}")
@@ -44,12 +44,12 @@ public class MemberController {
 	}
 	
 	@PutMapping("/{id}")
-	public Member updateMember(@RequestBody Member newT, @PathVariable Integer id) {
+	public Member updateMember(@RequestBody Member newT, @PathVariable String id) {
 		return memberService.updateMember(newT, id);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteMember(@PathVariable Integer id) {
+	public void deleteMember(@PathVariable String id) {
 		memberService.deleteMember(id);
 	}
 	

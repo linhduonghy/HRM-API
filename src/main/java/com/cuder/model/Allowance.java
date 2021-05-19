@@ -1,9 +1,11 @@
 package com.cuder.model;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,21 +20,19 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Allowance implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private String allowance_code;
 
-	private float levelOfAllowance;
+	private String allowance_name;
+	
+	private float allowance_value;
 
-	private String typeAllowance;
-
-	// bi-directional one-to-one association to Salary
-	@OneToOne(mappedBy = "allowance", orphanRemoval = true)
-	@JsonIgnore
-	private Salary salary;
+	// bi-directional one-to-many association to Salary
+	@OneToMany(mappedBy = "allowance", orphanRemoval = true)
+	@JsonIgnoreProperties({"member", "basicSalary","allowance"})
+	private List<Salary> salaries;
 
 }

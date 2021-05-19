@@ -8,11 +8,11 @@ public interface BasicSalaryService{
 
 	List<BasicSalary> getAllBasicSalary();
 
-	BasicSalary findById(Integer id);
+	BasicSalary findById(String id);
 	
 	BasicSalary createBasicSalary(BasicSalary basicSalary);
 
-	BasicSalary updateBasicSalary(BasicSalary basicSalary, Integer id);
+	BasicSalary updateBasicSalary(BasicSalary basicSalary, String id);
 
-	void deleteBasicSalary(Integer id);
+	void deleteBasicSalary(String id);
 }

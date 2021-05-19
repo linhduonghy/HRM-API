@@ -21,7 +21,7 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 
 	@Override
-	public Manager findById(Integer id) {
+	public Manager findById(String id) {
 		return managerRepo.findById(id).map(a -> {
 			return a;
 		}).orElseGet(() -> {
@@ -35,7 +35,7 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 
 	@Override
-	public Manager updateManager(Manager newManager, Integer id) {
+	public Manager updateManager(Manager newManager, String id) {
 		Manager manager = findById(id);
 		if (manager == null) {
 			return null;
@@ -51,7 +51,7 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 
 	@Override
-	public void deleteManager(Integer id) {
+	public void deleteManager(String id) {
 		
 		managerRepo.deleteById(id);
 	}

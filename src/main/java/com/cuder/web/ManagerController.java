@@ -30,7 +30,7 @@ public class ManagerController {
 	}
 	
 	@GetMapping("/{id}")
-	public Manager getById(@PathVariable Integer id) {
+	public Manager getById(@PathVariable String id) {
 		return managerService.findById(id);
 	}
 	
@@ -40,12 +40,12 @@ public class ManagerController {
 	}
 	
 	@PutMapping("/{id}")
-	public Manager updateManager(@RequestBody Manager newManager, @PathVariable Integer id) {
+	public Manager updateManager(@RequestBody Manager newManager, @PathVariable String id) {
 		return managerService.updateManager(newManager, id);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteManager(@PathVariable Integer id) {
+	public void deleteManager(@PathVariable String id) {
 		managerService.deleteManager(id);
 	}
 }

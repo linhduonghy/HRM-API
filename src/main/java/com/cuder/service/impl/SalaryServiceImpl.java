@@ -43,8 +43,6 @@ public class SalaryServiceImpl implements SalaryService {
 		
 		salary.setAllowance(newSalary.getAllowance());
 		salary.setBasicSalary(newSalary.getBasicSalary());
-		salary.setBonus(newSalary.getBonus());
-		salary.setJobType(newSalary.getJobType());
 		salary.setMember(newSalary.getMember());
 		salary.setSalary(newSalary.getSalary());
 		

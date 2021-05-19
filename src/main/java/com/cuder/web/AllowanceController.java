@@ -30,7 +30,7 @@ public class AllowanceController {
 	}
 	
 	@GetMapping("/{id}")
-	public Allowance getById(@PathVariable Integer id) {
+	public Allowance getById(@PathVariable String id) {
 		return allowanceService.findById(id);
 	}
 	
@@ -40,12 +40,12 @@ public class AllowanceController {
 	}
 	
 	@PutMapping("/{id}")
-	public Allowance updateAllowance(@RequestBody Allowance newT, @PathVariable Integer id) {
+	public Allowance updateAllowance(@RequestBody Allowance newT, @PathVariable String id) {
 		return allowanceService.updateAllowance(newT, id);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteAllowance(@PathVariable Integer id) {
+	public void deleteAllowance(@PathVariable String id) {
 		allowanceService.deleteAllowance(id);
 	}
 	

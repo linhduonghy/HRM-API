@@ -21,7 +21,7 @@ public class StaffServiceImpl implements StaffService {
 	}
 
 	@Override
-	public Staff findById(Integer id) {
+	public Staff findById(String id) {
 		return staffRepo.findById(id).map(a -> {
 			return a;
 		}).orElseGet(() -> {
@@ -35,7 +35,7 @@ public class StaffServiceImpl implements StaffService {
 	}
 
 	@Override
-	public Staff updateStaff(Staff newStaff, Integer id) {
+	public Staff updateStaff(Staff newStaff, String id) {
 		Staff staff = findById(id);
 		if (staff == null) {
 			return null;
@@ -49,7 +49,7 @@ public class StaffServiceImpl implements StaffService {
 	}
 
 	@Override
-	public void deleteStaff(Integer id) {
+	public void deleteStaff(String id) {
 		
 		staffRepo.deleteById(id);
 	}

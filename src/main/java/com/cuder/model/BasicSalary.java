@@ -2,10 +2,11 @@ package com.cuder.model;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,14 +28,12 @@ public class BasicSalary implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
-	private String name;
-	private float basic_salary;
-	private Date createDate;
+	private String basic_salary_name;
+	private float basic_salary_value;
+	private Date createdDate;
 
-	//bi-directional one-to-one association to Salary
-	@OneToOne(mappedBy = "basicSalary", orphanRemoval = true)
-	@JsonIgnore
-	private Salary salary;
+	//bi-directional one-to-many association to Salary
+	@OneToMany(mappedBy = "basicSalary", orphanRemoval = true)
+	@JsonIgnoreProperties({"member", "basicSalary","allowance"})
+	private List<Salary> salaries;
 }

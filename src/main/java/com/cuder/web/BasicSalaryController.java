@@ -30,7 +30,7 @@ public class BasicSalaryController {
 	}
 	
 	@GetMapping("/{id}")
-	public BasicSalary getById(@PathVariable Integer id) {
+	public BasicSalary getById(@PathVariable String id) {
 		return basicSalaryService.findById(id);
 	}
 	
@@ -40,12 +40,12 @@ public class BasicSalaryController {
 	}
 	
 	@PutMapping("/{id}")
-	public BasicSalary updateBasicSalary(@RequestBody BasicSalary newBasicSalary, @PathVariable Integer id) {
+	public BasicSalary updateBasicSalary(@RequestBody BasicSalary newBasicSalary, @PathVariable String id) {
 		return basicSalaryService.updateBasicSalary(newBasicSalary, id);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteBasicSalary(@PathVariable Integer id) {
+	public void deleteBasicSalary(@PathVariable String id) {
 		basicSalaryService.deleteBasicSalary(id);
 	}
 }

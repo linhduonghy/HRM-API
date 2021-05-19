@@ -43,7 +43,7 @@ public class BonusServiceImpl implements BonusService {
 		
 		bonus.setBonuses(newBonus.getBonuses());
 		bonus.setBonusType(newBonus.getBonusType());
-		bonus.setSalary(newBonus.getSalary());
+//		bonus.setSalary(newBonus.getSalary());
 		
 		return bonusRepo.save(bonus);
 	}

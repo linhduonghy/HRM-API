@@ -21,7 +21,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public Member findById(Integer id) {
+	public Member findById(String id) {
 		return memberRepo.findById(id).map(a -> {
 			return a;
 		}).orElseGet(() -> {
@@ -35,7 +35,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public Member updateMember(Member newMember, Integer id) {
+	public Member updateMember(Member newMember, String id) {
 		Member member = findById(id);
 		if (member == null) {
 			return null;
@@ -62,7 +62,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public void deleteMember(Integer id) {
+	public void deleteMember(String id) {
 		
 		memberRepo.deleteById(id);
 	}

@@ -10,9 +10,9 @@ public interface AllowanceService{
 
 	Allowance createAllowance(Allowance allowance);
 
-	Allowance findById(Integer a_id);
+	Allowance findById(String a_id);
 
-	Allowance updateAllowance(Allowance newAllowance, Integer a_id);
+	Allowance updateAllowance(Allowance newAllowance, String a_id);
 
-	void deleteAllowance(Integer a_id);
+	void deleteAllowance(String a_id);
 }

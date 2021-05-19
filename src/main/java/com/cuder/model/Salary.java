@@ -1,7 +1,7 @@
 package com.cuder.model;
 
 import java.io.Serializable;
-
+import java.sql.Date;
 
 import javax.persistence.*;
 
@@ -28,25 +28,24 @@ public class Salary implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name="job_type")
-	private String jobType;
-
 	private float salary;
 
+	private Date createdDate;
+	
 	//bi-directional one-to-one association to Allowance
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "allowance_id")
 	private Allowance allowance;
 
 	//bi-directional one-to-one association to BasicSalary
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="basic_salary_id")
 	private BasicSalary basicSalary;
 
 	//bi-directional one-to-one association to Bonus
-	@OneToOne
-	@JoinColumn(name="bonus_id")
-	private Bonus bonus;
+//	@OneToOne
+//	@JoinColumn(name="bonus_id")
+//	private Bonus bonus;
 
 	//bi-directional many-to-one association to Member
 	@OneToOne(mappedBy = "salary", orphanRemoval = true)

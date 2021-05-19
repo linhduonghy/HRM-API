@@ -3,7 +3,6 @@ package com.cuder.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -46,6 +45,6 @@ public class Appointment implements Serializable {
 	//bi-directional many-to-one association to Title
 	@ManyToOne
 	@JoinColumn(name="title_id")
-	@JsonIgnoreProperties({"appointments","recruitmentPositions"})
+	@JsonIgnoreProperties({"appointments"})
 	private Title title;
 }

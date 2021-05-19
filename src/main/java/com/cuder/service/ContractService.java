@@ -7,11 +7,11 @@ import com.cuder.model.Contract;
 public interface ContractService{
 	List<Contract> getAllContract();
 
-	Contract findById(Integer id);
+	Contract findById(String id);
 	
 	Contract createContract(Contract contract);
 
-	Contract updateContract(Contract newContract, Integer id);
+	Contract updateContract(Contract newContract, String id);
 
-	void deleteContract(Integer id);
+	void deleteContract(String id);
 }

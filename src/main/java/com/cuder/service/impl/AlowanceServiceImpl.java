@@ -26,7 +26,7 @@ public class AlowanceServiceImpl implements AllowanceService {
 	}
 
 	@Override
-	public Allowance findById(Integer a_id) {
+	public Allowance findById(String a_id) {
 		return allowanceRepo.findById(a_id).map(a -> {
 			return a;
 		}).orElseGet(() -> {
@@ -35,20 +35,21 @@ public class AlowanceServiceImpl implements AllowanceService {
 	}
 
 	@Override
-	public Allowance updateAllowance(Allowance newAllowance, Integer a_id) {
+	public Allowance updateAllowance(Allowance newAllowance, String a_id) {
 		Allowance allowance = findById(a_id);
 		if (allowance == null) {
 			return null;
 		}
-		allowance.setLevelOfAllowance(newAllowance.getLevelOfAllowance());
-		allowance.setSalary(newAllowance.getSalary());
-		allowance.setTypeAllowance(newAllowance.getTypeAllowance());
+		allowance.setAllowance_code(newAllowance.getAllowance_code());
+		allowance.setAllowance_name(newAllowance.getAllowance_name());
+		allowance.setAllowance_value(newAllowance.getAllowance_value());
+		allowance.setSalaries(newAllowance.getSalaries());
 		
 		return allowanceRepo.save(allowance);
 	}
 
 	@Override
-	public void deleteAllowance(Integer a_id) {
+	public void deleteAllowance(String a_id) {
 		
 		allowanceRepo.deleteById(a_id);
 	}
