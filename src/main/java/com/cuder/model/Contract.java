@@ -33,18 +33,19 @@ public class Contract implements Serializable {
 	//bi-directional many-to-one association to ContractType
 	@ManyToOne
 	@JoinColumn(name="contract_type_id")
+	@JsonIgnoreProperties("contracts")
 	private ContractType contractType;
 
 	//bi-directional many-to-one association to Staff
 	@ManyToOne
 	@JoinColumn(name="staff_id")
-	@JsonIgnoreProperties("contracts")
+	@JsonIgnoreProperties(value = {"contracts", "appointments"})
 	private Staff staff;
 
 	//bi-directional many-to-one association to Manager
 	@ManyToOne
 	@JoinColumn(name="manager_id")
-	@JsonIgnoreProperties("contracts")
+	@JsonIgnoreProperties(value = {"contracts", "appointments"})
 	private Manager manager;
 
 }

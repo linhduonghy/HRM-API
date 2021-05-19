@@ -34,7 +34,6 @@ public class ContractType implements Serializable {
 
 	//bi-directional many-to-one association to Contract
 	@OneToMany(mappedBy="contractType")
-	@JsonIgnore
 	private List<Contract> contracts;
 
 	public Contract addContract(Contract contract) {

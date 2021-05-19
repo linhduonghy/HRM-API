@@ -43,33 +43,4 @@ public class Manager implements Serializable {
 	//bi-directional many-to-one association to Report
 	@OneToMany(mappedBy="manager")
 	private List<Report> reports;
-
-	public Appointment addAppointment(Appointment appointment) {
-		getAppointments().add(appointment);
-		appointment.setManager(this);
-
-		return appointment;
-	}
-
-	public Appointment removeAppointment(Appointment appointment) {
-		getAppointments().remove(appointment);
-		appointment.setManager(null);
-
-		return appointment;
-	}
-
-	public Report addReport(Report report) {
-		getReports().add(report);
-		report.setManager(this);
-
-		return report;
-	}
-
-	public Report removeReport(Report report) {
-		getReports().remove(report);
-		report.setManager(null);
-
-		return report;
-	}
-
 }
