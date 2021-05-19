@@ -3,8 +3,6 @@ package com.cuder.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,19 +33,4 @@ public class ContractType implements Serializable {
 	//bi-directional many-to-one association to Contract
 	@OneToMany(mappedBy="contractType")
 	private List<Contract> contracts;
-
-	public Contract addContract(Contract contract) {
-		getContracts().add(contract);
-		contract.setContractType(this);
-
-		return contract;
-	}
-
-	public Contract removeContract(Contract contract) {
-		getContracts().remove(contract);
-		contract.setContractType(null);
-
-		return contract;
-	}
-
 }

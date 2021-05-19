@@ -26,13 +26,13 @@ public class TrainingCource implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
+	private String training_cource_name;
+	
 	private String content;
 
 	private int duration;
 
 	private int number_of_attendance;
-
-	private String training_cource_name;
 
 	//bi-directional one-to-many association to MemberTraningCource
 	@OneToMany(mappedBy = "trainingCource", cascade = CascadeType.ALL)
