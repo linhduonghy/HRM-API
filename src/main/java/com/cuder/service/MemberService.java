@@ -11,6 +11,8 @@ public interface MemberService {
 	Member findById(Integer id);
 	
 	Member createMember(Member member);
+	
+	Member getByUserName(String usrn);
 
 	Member updateMember(Member newMember, Integer id);
 

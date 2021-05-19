@@ -67,4 +67,11 @@ public class MemberServiceImpl implements MemberService {
 		memberRepo.deleteById(id);
 	}
 
+	@Override
+	public Member getByUserName(String usrn) {
+		Member mb = new Member();
+		mb = memberRepo.findByUsername(usrn);
+		return mb;
+	}
+
 }
