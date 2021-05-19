@@ -33,8 +33,8 @@ public class MemberController {
 	public Member getById(@PathVariable Integer id) {
 		return memberService.findById(id);
 	}
-	@GetMapping("/{ursn}")
-	public Member getById(@PathVariable String ursn) {
+	@GetMapping("/usrn/{ursn}")
+	public Member getByUsername(@PathVariable String ursn) {
 		return memberService.getByUserName(ursn);
 	}
 	
