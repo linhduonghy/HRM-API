@@ -47,7 +47,6 @@ public class Member implements Serializable {
 
 	private String username;
 	
-	private String qualification;
 
 	//bi-directional many-to-one association to Departmant
 	@ManyToOne
