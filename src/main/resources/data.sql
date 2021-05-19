@@ -2,6 +2,12 @@ INSERT INTO `company` VALUES (1,'SS-HN','CUDER','123456','IT company');
 
 INSERT INTO `department` VALUES (1,'TU','HR','1234567',1),(2,'IU','IT','1234567',1);
 
+INSERT INTO `member` VALUES (1,'VP','1999-06-15','linhduonghy@gmail.com','12345','Duong Van Linh','linhdv','123456','Đại học',	'Male','linhdv',2);
+INSERT INTO `member` VALUES (2,'HN','1999-08-22','linhhh@gmail.com','12345','Hoang Ha Linh','linhhh','123456','Đại học','Male','linhhh',2);
+INSERT INTO `member` VALUES (3,'Lam Thao - Phu Tho','1999-10-03','huynd@gmail.com','12345','Nguyen Duc Huy','huynd','123456','Đại học','Male','huynd',2);
+INSERT INTO `member` VALUES (4,'SS-HN','1999-10-19','iu@gmail.com','12345','IUTU','iu','123456','Đại học','Female','iu',1);
+INSERT INTO `member` VALUES (5,'VP','1999-02-11','flna@gmail.com','12345','flna','flna','123456','Đại học','Female','flna',1);
+
 --INSERT INTO `bonus` VALUES (1,'',1000000),(2,'',1000000),(3,'',1000000),(4,'',1000000),(5,'',1000000);
 INSERT INTO `allowance`(allowance_code,allowance_name,allowance_value) VALUES ('A1','N1',1000000);
 INSERT INTO `allowance`(allowance_code,allowance_name,allowance_value) VALUES ('A2','N2',2000000);
@@ -11,17 +17,11 @@ INSERT INTO `basic_salary`(basic_salary_name,basic_salary_value,created_date) VA
 INSERT INTO `basic_salary`(basic_salary_name,basic_salary_value,created_date) VALUES ('CB2',6000000,'2021-05-18');
 INSERT INTO `basic_salary`(basic_salary_name,basic_salary_value,created_date) VALUES ('CB3',7000000,'2021-05-18');
 
-INSERT INTO `salary`(id,salary,created_date,allowance_id,basic_salary_id) VALUES (1,5000000,'2020-06-15','A1','CB1');
-INSERT INTO `salary`(id,salary,created_date,allowance_id,basic_salary_id) VALUES (2,5000000,'2020-07-15','A2','CB2');
-INSERT INTO `salary`(id,salary,created_date,allowance_id,basic_salary_id) VALUES (3,5000000,'2020-08-15','A3','CB1');
-INSERT INTO `salary`(id,salary,created_date,allowance_id,basic_salary_id) VALUES (4,6000000,'2020-09-15','A2','CB2');
-INSERT INTO `salary`(id,salary,created_date,allowance_id,basic_salary_id) VALUES (5,6000000,'2020-10-15','A3','CB3');
-
-INSERT INTO `member` VALUES (1,'VP','1999-06-15','linhduonghy@gmail.com','12345','Duong Van Linh','linhdv','123456','Đại học',	'Male','linhdv',2,1);
-INSERT INTO `member` VALUES (2,'HN','1999-08-22','linhhh@gmail.com','12345','Hoang Ha Linh','linhhh','123456','Đại học','Male','linhhh',2,2);
-INSERT INTO `member` VALUES (3,'Lam Thao - Phu Tho','1999-10-03','huynd@gmail.com','12345','Nguyen Duc Huy','huynd','123456','Đại học','Male','huynd',2,3);
-INSERT INTO `member` VALUES (4,'SS-HN','1999-10-19','iu@gmail.com','12345','IUTU','iu','123456','Đại học','Female','iu',1,4);
-INSERT INTO `member` VALUES (5,'VP','1999-02-11','flna@gmail.com','12345','flna','flna','123456','Đại học','Female','flna',1,5);
+INSERT INTO `salary`(id,salary,coefficient_basic_salary,created_date,allowance_id,basic_salary_id,member_id) VALUES (1,5000000,1, '2020-06-15','A1','CB1',1);
+INSERT INTO `salary`(id,salary,coefficient_basic_salary,created_date,allowance_id,basic_salary_id,member_id) VALUES (2,5000000,1, '2020-07-15','A2','CB2',2);
+INSERT INTO `salary`(id,salary,coefficient_basic_salary,created_date,allowance_id,basic_salary_id,member_id) VALUES (3,5000000,2, '2020-08-15','A3','CB1',1);
+INSERT INTO `salary`(id,salary,coefficient_basic_salary,created_date,allowance_id,basic_salary_id,member_id) VALUES (4,6000000,2, '2020-09-15','A2','CB2',2);
+INSERT INTO `salary`(id,salary,coefficient_basic_salary,created_date,allowance_id,basic_salary_id,member_id) VALUES (5,6000000,2.5, '2020-10-15','A3','CB3',3);
 
 insert into `staff`(id,member_id) values ('NV1', 1);
 insert into `staff`(id,member_id) values ('NV2', 2);

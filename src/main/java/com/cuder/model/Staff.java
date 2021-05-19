@@ -3,6 +3,8 @@ package com.cuder.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,5 +37,6 @@ public class Staff implements Serializable {
 	//bi-directional one-to-one association to Member
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="member_id")
+	@JsonIgnoreProperties("staff")
 	private Member member;
 }

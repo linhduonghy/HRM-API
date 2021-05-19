@@ -8,14 +8,15 @@ public interface MemberService {
 
 	List<Member> getAllMember();
 
-	Member findById(String id);
+	Member findById(Integer id);
 	
 	Member createMember(Member member);
 	
 	Member getByUserName(String usrn);
 
-	Member updateMember(Member newMember, String id);
+	Member updateMember(Member newMember, Integer id);
 
-	void deleteMember(String id);
+	void deleteMember(Integer id);
 	
+	Member[] findMemberUnUsername();
 }

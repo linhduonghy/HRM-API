@@ -21,7 +21,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public Member findById(String id) {
+	public Member findById(Integer id) {
 		return memberRepo.findById(id).map(a -> {
 			return a;
 		}).orElseGet(() -> {
@@ -35,14 +35,14 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public Member updateMember(Member newMember, String id) {
+	public Member updateMember(Member newMember, Integer id) {
 		Member member = findById(id);
 		if (member == null) {
 			return null;
 		}
 		
 		member.setAddress(newMember.getAddress());
-		member.setDepartmant(newMember.getDepartmant());
+		member.setDepartment(newMember.getDepartment());
 		member.setDob(newMember.getDob());
 		member.setEmail(newMember.getEmail());
 		member.setIdcard(newMember.getIdcard());
@@ -51,8 +51,7 @@ public class MemberServiceImpl implements MemberService {
 		member.setName(newMember.getName());
 		member.setPassword(newMember.getPassword());
 		member.setPhone(newMember.getPhone());
-		member.setSalary(newMember.getSalary());
-		member.setSalary(newMember.getSalary());
+		member.setSalaries(newMember.getSalaries());
 		member.setQualification(newMember.getQualification());
 		member.setSex(newMember.getSex());
 		member.setStaff(newMember.getStaff());
@@ -62,7 +61,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public void deleteMember(String id) {
+	public void deleteMember(Integer id) {
 		
 		memberRepo.deleteById(id);
 	}
@@ -72,6 +71,11 @@ public class MemberServiceImpl implements MemberService {
 		Member mb = new Member();
 		mb = memberRepo.findByUsername(usrn);
 		return mb;
+	}
+
+	@Override
+	public Member[] findMemberUnUsername() {
+		return memberRepo.findMemberDontUsername();
 	}
 
 }

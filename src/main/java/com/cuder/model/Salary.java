@@ -29,8 +29,10 @@ public class Salary implements Serializable {
 	private int id;
 
 	private float salary;
-
+	
 	private Date createdDate;
+	
+	private float coefficientBasicSalary;
 	
 	//bi-directional one-to-one association to Allowance
 	@ManyToOne
@@ -48,7 +50,7 @@ public class Salary implements Serializable {
 //	private Bonus bonus;
 
 	//bi-directional many-to-one association to Member
-	@OneToOne(mappedBy = "salary", orphanRemoval = true)
+	@ManyToOne
 	private Member member;
 	
 	

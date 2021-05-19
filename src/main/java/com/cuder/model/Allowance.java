@@ -31,7 +31,7 @@ public class Allowance implements Serializable {
 	private float allowance_value;
 
 	// bi-directional one-to-many association to Salary
-	@OneToMany(mappedBy = "allowance", orphanRemoval = true)
+	@OneToMany(mappedBy = "allowance")
 	@JsonIgnoreProperties({"member", "basicSalary","allowance"})
 	private List<Salary> salaries;
 

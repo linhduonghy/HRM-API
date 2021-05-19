@@ -38,7 +38,7 @@ public class MemberTrainingCource implements Serializable {
 	// bi-directional many-to-one association to Member
 	@ManyToOne
 	@JoinColumn(name = "member_id")
-	@JsonIgnoreProperties("memberTraningCources")
+	@JsonIgnoreProperties({"memberTraningCources", "salaries"})
 	private Member member;
 
 }

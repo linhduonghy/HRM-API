@@ -53,23 +53,20 @@ public class Member implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "department_id")
 	@JsonIgnoreProperties("members")
-	private Department departmant;
+	private Department department;
 	
 	//bi-directional one-to-one association to Manager
 	@OneToOne(mappedBy="member", cascade = CascadeType.ALL)
-	@JsonIgnore
 	private Manager manager;
 
 	//bi-directional one-to-one association to Staff
 	@OneToOne(mappedBy="member")
-	@JsonIgnore
 	private Staff staff;
 
 	//bi-directional many-to-one association to Salary
-	@OneToOne
-	@JoinColumn(name = "salary_id")
-	@JsonIgnoreProperties({"member", "basicSalary","allowance"})
-	private Salary salary;
+	@OneToMany(mappedBy = "member")
+	@JsonIgnoreProperties({"member"})
+	private List<Salary> salaries;
 
 	//bi-directional many-to-one association to TrainingCourse
 	@OneToMany(mappedBy="member", cascade = CascadeType.ALL)

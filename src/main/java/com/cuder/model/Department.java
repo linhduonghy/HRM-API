@@ -37,22 +37,9 @@ public class Department implements Serializable {
 	private Company company;
 
 	//bi-directional one-to-many association to Staff
-	@OneToMany(mappedBy="departmant", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy="department", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Member> members;
 
 	
-	public Member addMember(Member member) {
-		getMembers().add(member);
-		member.setDepartmant(this);
-		
-		return member;
-	}
-	
-	public Member removeMember(Member member) {
-		getMembers().remove(member);
-		member.setDepartmant(null);
-		
-		return member;
-	}
 
 }
