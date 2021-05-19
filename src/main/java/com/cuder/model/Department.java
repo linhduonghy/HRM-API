@@ -40,7 +40,7 @@ public class Department implements Serializable {
 	@OneToMany(mappedBy="departmant", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Member> members;
 
-
+	
 	public Member addMember(Member member) {
 		getMembers().add(member);
 		member.setDepartmant(this);

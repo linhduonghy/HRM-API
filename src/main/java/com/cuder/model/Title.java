@@ -33,7 +33,6 @@ public class Title implements Serializable {
 
 	//bi-directional one-to-many association to Appointment
 	@OneToMany(mappedBy="title")
-	@JsonIgnore
 	private List<Appointment> appointments;
 
 	@OneToMany(mappedBy = "title")

@@ -5,6 +5,8 @@ import java.sql.Date;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,11 +38,13 @@ public class Contract implements Serializable {
 	//bi-directional many-to-one association to Staff
 	@ManyToOne
 	@JoinColumn(name="staff_id")
+	@JsonIgnoreProperties("contracts")
 	private Staff staff;
 
 	//bi-directional many-to-one association to Manager
 	@ManyToOne
 	@JoinColumn(name="manager_id")
+	@JsonIgnoreProperties("contracts")
 	private Manager manager;
 
 }

@@ -35,6 +35,7 @@ public class RecruitmentPosition implements Serializable{
 	private RecruitmentTerm recruitmentTerm;
 	
 	@ManyToOne
+	@JsonIgnoreProperties("recruitmentPositions")
 	private Title title;
 	
 	@OneToMany(mappedBy = "recruitmentPosition")

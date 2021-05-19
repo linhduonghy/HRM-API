@@ -28,11 +28,12 @@ public class Appointment implements Serializable {
 
 	private Date appointed_date;
 
-	private String decription;
+	private String description;
 
 	//bi-directional many-to-one association to Manager
 	@ManyToOne
 	@JoinColumn(name = "manager_id")
+	@JsonIgnoreProperties("appointments")
 	private Manager manager;
 
 	//bi-directional many-to-one association to Staff
@@ -40,9 +41,10 @@ public class Appointment implements Serializable {
 	@JoinColumn(name = "staff_id")
 	@JsonIgnoreProperties("appointments")
 	private Staff staff;
-
+	
 	//bi-directional many-to-one association to Title
 	@ManyToOne
 	@JoinColumn(name="title_id")
+	@JsonIgnoreProperties("appointments")
 	private Title title;
 }

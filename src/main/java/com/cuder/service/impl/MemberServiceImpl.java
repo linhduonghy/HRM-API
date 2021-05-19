@@ -42,18 +42,18 @@ public class MemberServiceImpl implements MemberService {
 		}
 		
 		member.setAddress(newMember.getAddress());
-		member.setDegrees(newMember.getDegrees());
 		member.setDepartmant(newMember.getDepartmant());
 		member.setDob(newMember.getDob());
 		member.setEmail(newMember.getEmail());
 		member.setIdcard(newMember.getIdcard());
 		member.setManager(newMember.getManager());
-		member.setMemberPermissions(newMember.getMemberPermissions());
 		member.setMemberTraningCources(newMember.getMemberTraningCources());
 		member.setName(newMember.getName());
 		member.setPassword(newMember.getPassword());
 		member.setPhone(newMember.getPhone());
 		member.setSalary(newMember.getSalary());
+		member.setSalary(newMember.getSalary());
+		member.setQualification(newMember.getQualification());
 		member.setSex(newMember.getSex());
 		member.setStaff(newMember.getStaff());
 		member.setUsername(newMember.getUsername());

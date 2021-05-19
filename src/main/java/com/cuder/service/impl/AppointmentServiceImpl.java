@@ -41,7 +41,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 			return null;
 		}
 		appointment.setAppointed_date(newAppointment.getAppointed_date());
-		appointment.setDecription(newAppointment.getDecription());
+		appointment.setDescription(newAppointment.getDescription());
 		appointment.setManager(newAppointment.getManager());
 		appointment.setStaff(newAppointment.getStaff());
 		appointment.setTitle(newAppointment.getTitle());

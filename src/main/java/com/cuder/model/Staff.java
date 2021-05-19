@@ -4,7 +4,6 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,7 +33,6 @@ public class Staff implements Serializable {
 
 	//bi-directional one-to-many association to Contract
 	@OneToMany(mappedBy="staff")
-	@JsonIgnore
 	private List<Contract> contracts;
 
 	//bi-directional one-to-one association to Member

@@ -5,7 +5,6 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -51,7 +50,6 @@ public class Salary implements Serializable {
 
 	//bi-directional many-to-one association to Member
 	@OneToOne(mappedBy = "salary", orphanRemoval = true)
-	@JsonIgnore
 	private Member member;
 	
 	

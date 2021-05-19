@@ -46,6 +46,8 @@ public class Member implements Serializable {
 	private String sex;
 
 	private String username;
+	
+	private String qualification;
 
 	//bi-directional many-to-one association to Departmant
 	@ManyToOne
@@ -53,11 +55,6 @@ public class Member implements Serializable {
 	@JsonIgnoreProperties("members")
 	private Department departmant;
 	
-	//bi-directional one-to-many association to Degree
-	@OneToMany(mappedBy="member", cascade = CascadeType.ALL)
-	@JsonIgnore
-	private List<Degree> degrees;
-
 	//bi-directional one-to-one association to Manager
 	@OneToOne(mappedBy="member", cascade = CascadeType.ALL)
 	@JsonIgnore
@@ -68,48 +65,13 @@ public class Member implements Serializable {
 	@JsonIgnore
 	private Staff staff;
 
-	//bi-directional one-to-many association to MemberPermission
-	@OneToMany(mappedBy="member", cascade = CascadeType.ALL)
-	@JsonIgnore
-	private List<MemberPermission> memberPermissions;
-
 	//bi-directional many-to-one association to Salary
 	@OneToOne
 	@JoinColumn(name = "salary_id")
+	@JsonIgnoreProperties("member")
 	private Salary salary;
 
 	//bi-directional many-to-one association to TrainingCourse
 	@OneToMany(mappedBy="member", cascade = CascadeType.ALL)
-	@JsonIgnore
 	private List<MemberTrainingCource> memberTraningCources;
-
-	public MemberPermission addMemberPermission(MemberPermission memberPermission) {
-		getMemberPermissions().add(memberPermission);
-		memberPermission.setMember(this);
-
-		return memberPermission;
-	}
-
-	public MemberPermission removeMemberPermission(MemberPermission memberPermission) {
-		getMemberPermissions().remove(memberPermission);
-		memberPermission.setMember(null);
-
-		return memberPermission;
-	}
-
-
-
-	public MemberTrainingCource addMemberTrainingCources(MemberTrainingCource mtc) {
-		getMemberTraningCources().add(mtc);
-		mtc.setMember(this);
-		
-		return mtc;
-	}
-
-	public MemberTrainingCource removeMemberTrainingCources(MemberTrainingCource mtc) {
-		getMemberTraningCources().remove(mtc);
-		mtc.setMember(null);
-		
-		return mtc;
-	}
 }
