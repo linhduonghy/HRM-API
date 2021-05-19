@@ -46,6 +46,6 @@ public class Appointment implements Serializable {
 	//bi-directional many-to-one association to Title
 	@ManyToOne
 	@JoinColumn(name="title_id")
-	@JsonIgnore
+	@JsonIgnoreProperties({"appointments","recruitmentPositions"})
 	private Title title;
 }
